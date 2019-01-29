@@ -49,7 +49,7 @@ public class GetNames
 					num++;
 				
 				}
-			Collections.sort(fullClass, new FirstNameSorter());
+//			Collections.sort(fullClass, new FirstNameSorter());
 			
 			groupSize =  fullClass.size()/numberOfGroups;
 			remainder = fullClass.size() - (groupSize*numberOfGroups);
@@ -58,21 +58,89 @@ public class GetNames
 //			System.out.println("Remainder: " + remainder);
 //			System.out.println("Group size: " + groupSize);
 			System.out.println("There will be " + remainder + " groups with " + (groupSize+1) + " students. There will be " + (numberOfGroups-remainder) + " groups with " + (groupSize) +" students.");
-			
+			System.out.println();
 //			for(int i =0; i<fullClass.size();i++)
 //				{
 //					System.out.println(fullClass.get(i).getFirst()+ " " + fullClass.get(i).getLast() + " "+ fullClass.get(i).getNumber());
 //				}
 		}
 		
-		public static void randomizeGroups()
+		public static void createGroups()
+		{
+//			GenerateProject1();
+			generateProject2();
+		}
+		
+		public static void GenerateProject1()
 			{
-				for (int i=0; i<fullClass.size();i++)
+				int counter =0;
+				int grouper=1;
+				System.out.println("---Group Project One---");
+				for (int i=0; i<numberOfGroups-largeGroup;i++)
 					{
+						System.out.println("Group " + (grouper) +":");	
 						
+						for (int a=0; a<groupSize;a++)
+							{
+								System.out.println((a+1) +") " + fullClass.get(counter).getFirst()  +" "+ fullClass.get(counter).getLast() +" "+ fullClass.get(counter).getNumber());	
+								counter++;
+							}
+						
+						System.out.println();
+						grouper++;
 					}
 		
+				for (int l=0; l<largeGroup; l++)
+					{
+						System.out.println("This is a larger group.");
+						System.out.println("Group " + (grouper)+":");
+						for (int a=0; a<groupSize+1;a++)
+							{
+								System.out.println((a+1) +") " + fullClass.get(counter).getFirst()  +" "+ fullClass.get(counter).getLast() +" "+ fullClass.get(counter).getNumber());	
+								counter++;
+							}
+						System.out.println();
+						grouper++;
+					}
 			}
+		
+		public static void generateProject2()
+		{
+			int counter =0;
+			int grouper=1;
+			int finalg=0;;
+			System.out.println("---Group Project Two---");
+			for (int i=0; i<numberOfGroups-largeGroup;i++)
+				{
+					counter=i;
+					finalg=counter;
+					System.out.println("Group " + (grouper) +":");	
+					
+					for (int a=0; a<groupSize;a++)
+						{
+							System.out.println((a+1) +") " + fullClass.get(counter).getFirst()  +" "+ fullClass.get(counter).getLast() +" "+ fullClass.get(counter).getNumber());	
+							counter+=groupSize;
+						}
+					
+					System.out.println();
+					grouper++;
+				}
+	
+			for (int l=0; l<largeGroup; l++)
+				{
+					System.out.println("This is a larger group.");
+					counter=(finalg+largeGroup-1+l);
+					System.out.println("Group " + (grouper)+":");
+					for (int a=0; a<groupSize+1;a++)
+						{
+							System.out.println((a+1) +") " + fullClass.get(counter).getFirst()  +" "+ fullClass.get(counter).getLast() +" "+ fullClass.get(counter).getNumber());	
+							counter+=groupSize;
+//							counter++;
+						}
+					System.out.println();
+					grouper++;
+				}
+		}
 		
 		
 		

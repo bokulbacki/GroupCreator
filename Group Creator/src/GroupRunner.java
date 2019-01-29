@@ -11,7 +11,7 @@ public class GroupRunner
 			{
 				GetNames.greet();
 				GetNames.getNames();
-				GetNames.randomizeGroups();
+				GetNames.createGroups();
 				
 
 			}

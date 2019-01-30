@@ -67,7 +67,7 @@ public class GetNames
 		
 		public static void createGroups()
 		{
-//			GenerateProject1();
+			GenerateProject1();
 			generateProject2();
 		}
 		
@@ -108,7 +108,7 @@ public class GetNames
 		{
 			int counter =0;
 			int grouper=1;
-			int finalg=0;;
+			int finalg=0;
 			System.out.println("---Group Project Two---");
 			for (int i=0; i<numberOfGroups-largeGroup;i++)
 				{
@@ -118,8 +118,18 @@ public class GetNames
 					
 					for (int a=0; a<groupSize;a++)
 						{
-							System.out.println((a+1) +") " + fullClass.get(counter).getFirst()  +" "+ fullClass.get(counter).getLast() +" "+ fullClass.get(counter).getNumber());	
-							counter+=groupSize;
+						
+						if (counter>fullClass.size())
+							{
+								System.out.println("trying to get " + counter);
+							}
+						else
+							{
+								System.out.println((a+1) +") " + fullClass.get(counter).getFirst()  +" "+ fullClass.get(counter).getLast() +" "+ fullClass.get(counter).getNumber());	
+								counter+=(groupSize+1);
+							}
+						
+							
 						}
 					
 					System.out.println();
@@ -133,9 +143,18 @@ public class GetNames
 					System.out.println("Group " + (grouper)+":");
 					for (int a=0; a<groupSize+1;a++)
 						{
+						
+						if (counter>fullClass.size())
+							{
+								System.out.println("trying to get " + counter);
+							}
+						else
+							{
 							System.out.println((a+1) +") " + fullClass.get(counter).getFirst()  +" "+ fullClass.get(counter).getLast() +" "+ fullClass.get(counter).getNumber());	
-							counter+=groupSize;
+							counter+=(groupSize+1);
 //							counter++;
+							}
+							
 						}
 					System.out.println();
 					grouper++;
